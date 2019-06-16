@@ -1,20 +1,19 @@
 <h2>My Heroes</h2>
 <h2>
-  <ul>
-    <!--*ngfor是个-->
-    <li *ngFor="let everyHero of heroes"> <!--定义一个变量用来遍历heroes这个数组-->
-      <span class="badge">{{everyHero.id}}</span>  {{everyHero.name}}
+  <ul class="heroes"> <!--元素中的class关键字好像和css密切相关-->
+    <!--*ngfor是复写器指令，能遍历数组从而生成多个自己的宿主元素，比如下文的li元素-->
+    <!--html里，属性“=”之后双引号的内容不一定是值，还可以是一些列操作语句，=中并不是单纯的赋值语句-->
+    <li *ngFor="let everyHero of heroes"
+        [class.selected]="everyHero==selectedHero"
+        (click)="onSelect(everyHero)">
+      <!--定义一个变量用来遍历heroes这个数组-->
+      <span class="badge">{{everyHero.id}}</span>
+      {{everyHero.name}}
     </li>
   </ul>
 </h2>
 
 
-<h2>{{hero.name|uppercase}}<!--直接显示脚本中的某个变量-->  Details</h2>  <!--使用管道操作符格式化字符串、金额、日期-->
-<div><span>id:</span>{{hero.id}}</div>
-<div><span>name:</span>{{hero.name}}</div>
+<!--通过@input装饰器使这个元素能够接收数据-->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
-<div>
-  <label>name:
-    <input [(ngModel)]="hero.name" placeholder="name">  <!--双向数据绑定操作，输入的内容和hero的name属性绑定-->
-  </label>
-</div>
