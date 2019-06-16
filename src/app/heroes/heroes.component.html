@@ -1,3 +1,14 @@
+<h2>My Heroes</h2>
+<h2>
+  <ul>
+    <!--*ngfor是个-->
+    <li *ngFor="let everyHero of heroes"> <!--定义一个变量用来遍历heroes这个数组-->
+      <span class="badge">{{everyHero.id}}</span>  {{everyHero.name}}
+    </li>
+  </ul>
+</h2>
+
+
 <h2>{{hero.name|uppercase}}<!--直接显示脚本中的某个变量-->  Details</h2>  <!--使用管道操作符格式化字符串、金额、日期-->
 <div><span>id:</span>{{hero.id}}</div>
 <div><span>name:</span>{{hero.name}}</div>
