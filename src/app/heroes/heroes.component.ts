@@ -16,6 +16,9 @@ export class HeroesComponent implements OnInit {
 
   private heroService: HeroService;
 
+
+  // 当 Angular 创建 HeroesComponent 时，依赖注入系统就会把这个 heroService 参数设置为 HeroService 的单例对象。
+  // 构造函数即为依赖注入点
   constructor(heroService: HeroService) {
     this.heroService = heroService;
   }
