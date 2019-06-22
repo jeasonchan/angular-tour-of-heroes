@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Hero} from './hero';
 import {HEROES} from './mock-heroes';
 import {Observable, of} from 'rxjs';
+import {MessageService} from './message.service';
 
 @Injectable({  // 这个组件是可以注入的，也就是是一个服务；同理，组件也有类似的注解，这种注解内的属性及其赋值即为 元数据
   providedIn: 'root'   // 表明可以被使用的范围，此处的范围是 root 即为根目录范围
@@ -9,7 +10,10 @@ import {Observable, of} from 'rxjs';
 
 export class HeroService {
 
-  constructor() {
+  private messageService: MessageService;
+
+  constructor(messageService) {  // 将messageService服务注入这个服务中，其实只是获得了messageService单一实例的引用
+    this.messageService = messageService;
   }
 
 
@@ -20,6 +24,8 @@ export class HeroService {
   }
 
   getHeroes(): Observable<Hero[]> {
+    this.messageService.addMessage('HeroService:fetched the heroes!'); // 一般下，属性绑定使用英文双引号，
+    // 字符串（比如地址、文字表达）使用单引号！
     return of(HEROES); // of(HEROES) 会返回一个 Observable<Hero[]>，它会发出单个值，这个值就是这些模拟英雄的数组。
 
   }
