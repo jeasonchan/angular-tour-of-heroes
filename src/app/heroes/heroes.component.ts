@@ -27,7 +27,7 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();  // 和python一样，只要是调用类实例的的方法或者变量都需要通过this，哪怕是在类的内部
   }
 
-  onSelect(everyHero: Hero) {
+  onSelect(everyHero: Hero): void {
     this.selectedHero = everyHero;
   }
 

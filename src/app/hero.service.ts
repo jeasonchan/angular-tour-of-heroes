@@ -12,7 +12,7 @@ export class HeroService {
 
   private messageService: MessageService;
 
-  constructor(messageService) {  // 将messageService服务注入这个服务中，其实只是获得了messageService单一实例的引用
+  constructor(messageService: MessageService) {
     this.messageService = messageService;
   }
 
@@ -24,8 +24,7 @@ export class HeroService {
   }
 
   getHeroes(): Observable<Hero[]> {
-    this.messageService.addMessage('HeroService:fetched the heroes!'); // 一般下，属性绑定使用英文双引号，
-    // 字符串（比如地址、文字表达）使用单引号！
+    this.messageService.addMessage('Got all heroes from HEROES!');
     return of(HEROES); // of(HEROES) 会返回一个 Observable<Hero[]>，它会发出单个值，这个值就是这些模拟英雄的数组。
 
   }
