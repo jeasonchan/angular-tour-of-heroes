@@ -1,3 +1,6 @@
-<p>
-  messages works!
-</p>
+<h2>Messages in MessageService:</h2>
+
+<div *ngIf="messageService.messages.length">
+  <button class="clear" (click)="messageService.clearMessages()">Clear Messages</button>
+  <div *ngFor="let eachMessage of messageService.messages">{{eachMessage}}</div>  // 使用插值语句！！
+</div>
