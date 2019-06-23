@@ -6,6 +6,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import {FormsModule} from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({  // 该module需要的module列表，由于该项目就是一个module，所以app.module.ts控制着整个app的模块导入
   declarations: [
@@ -14,7 +15,8 @@ import { MessagesComponent } from './messages/messages.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
